@@ -26,7 +26,7 @@ public class LectureController {
 
     private final LectureService lectureService;
 
-    @PreAuthorize("hasAnyRole('CHEF', 'OWNER')")
+//    @PreAuthorize("hasAnyRole('CHEF', 'OWNER')")
     @PostMapping("/post")
     public ResponseEntity<?> create(@Valid @RequestPart LectureCreateDto lectureCreateDto,
                                     @RequestPart List<LectureIngredientsListDto> lectureIngredientsListDto,
@@ -39,7 +39,7 @@ public class LectureController {
         return new ResponseEntity<>(ResponseDto.ok("강의등록번호 : " + lectureId,HttpStatus.CREATED), HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasAnyRole('CHEF', 'OWNER') or hasRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('CHEF', 'OWNER') or hasRole('ADMIN')")
     @PatchMapping(value = "/update/{lectureId}",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> updateLecture(
